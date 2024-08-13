@@ -3,13 +3,17 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Inicio } from "./pages/inicio";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import VistaRegister from "./pages/vista-register";
+import VistaLogin from "./pages/vista-login";
+import Perfil from "./pages/perfil";
+import Profesionales from "./pages/profesionales";
+
 
 //create your first component
 const Layout = () => {
@@ -25,9 +29,11 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar />
                     <Routes>
-                        <Route element={<Home />} path="/" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        <Route element={<Inicio />} path="/" />
+                        <Route element={<VistaRegister />} path="/vista-register" />
+                        <Route element={<VistaLogin />} path="/vista-login" />
+                        <Route element={<Perfil />} path="/perfil" />
+                        <Route element={<Profesionales />} path="/profesionales" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

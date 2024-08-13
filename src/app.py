@@ -10,13 +10,16 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from datetime import datetime, timezone
+from flask_cors import CORS
+from flask_jwt_extended import JWTManager# from models import Person 
 
-# from models import Person
-
+#hola
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 app.url_map.strict_slashes = False
 
 # database condiguration
@@ -36,6 +39,10 @@ setup_admin(app)
 
 # add the admin
 setup_commands(app)
+
+# Setup the Flask-JWT-Extended extension
+app.config["JWT_SECRET_KEY"] = "super-agent-secret-86"
+jwt = JWTManager(app)
 
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
@@ -58,7 +65,13 @@ def sitemap():
 
 # any other endpoint will try to serve it like a static file
 
+@app.route('/hola', methods=['GET'])
+def handle_hello():
 
+    response_body ={
+        "msg": "Hello, this is your GET /hola response"
+    }
+    return jsonify(response_body),200
 @app.route('/<path:path>', methods=['GET'])
 def serve_any_other_file(path):
     if not os.path.isfile(os.path.join(static_file_dir, path)):
@@ -72,3 +85,4 @@ def serve_any_other_file(path):
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=PORT, debug=True)
+   
