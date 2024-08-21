@@ -132,6 +132,8 @@ button.accordion-button {
 .modal-actions .btn span {
     font-size: 0.9rem;
 }
-textarea
-{field-sizing:content;
+
+
+textarea{
+    field-sizing:content;
 }
