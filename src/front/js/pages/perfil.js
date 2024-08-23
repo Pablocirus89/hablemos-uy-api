@@ -9,7 +9,6 @@ import FormSolicitudProf from "../component/formSolicitudProf.jsx";
 const Perfil = () => {
     const { store, actions } = useContext(Context);
 
-
     useEffect(() => {
         actions.getPerfilUsuario();
 
