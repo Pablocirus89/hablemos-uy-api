@@ -4,10 +4,10 @@ import "../../styles/perfil.css"
 import VistaModal from "../component/vistaModal.jsx";
 import defaultAvatar from "../../img/avatar.jpg"
 
-
 const Perfil = () => {
 
     const { store, actions } = useContext(Context)
+
 
     useEffect(() => {
         actions.getPerfilUsuario()
@@ -28,6 +28,7 @@ const Perfil = () => {
     // Función para cerrar el modal
     const closeModal = () => setShowModal(false);
     return (
+        
         <div className="container mt-4 col-md-8" style={{ minHeight: '73vh' }}>
             <div className="row align-items-center user-profile">
                 <div className="col-md-4 text-center position-relative">
