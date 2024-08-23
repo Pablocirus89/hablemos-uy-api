@@ -5,18 +5,31 @@
     padding: 20px;
 }
 
+.profile-image-container {
+    width: 100%;
+    max-width: 250px;
+    /* Ajusta según sea necesario */
+    aspect-ratio: 1 / 1;
+    /* Mantiene la relación de aspecto 1:1 */
+    position: relative;
+    margin: 0 auto;
+    /* Centra la imagen en el contenedor */
+}
+
 .profile-image {
-    width: 150px; /* O cualquier otro valor que prefieras */
-    height: 150px; /* Mantener las dimensiones iguales para hacerla circular */
-    object-fit: cover; /* Asegura que la imagen ocupe todo el espacio del contenedor sin distorsionarse */
-    border-radius: 50%; /* Para hacerla circular */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Para hacerla circular */
+    object-fit: cover;
+    /* Mantiene la relación de aspecto sin distorsión */
 }
 
 /* Media query para pantallas medianas (>= 768px) */
 @media (max-width: 768px) {
-    .profile-image {
-        max-width: 50%;
-        /* Cambia el ancho máximo a 75% en pantallas medianas */
+    .profile-image-container {
+        max-width: 200px;
+        /* Ajusta según sea necesario */
     }
 }
 
@@ -31,11 +44,14 @@ button.accordion-button {
     transform: translate(-50%, -50%);
 }
 .modal-backdrop {
-    z-index: 1040!important; /* Asegúrate de que esté debajo del modal-content */
-    background-color: rgba(0, 0, 0, 0.5); /* Un color semitransparente */
+    z-index: 1040 !important;
+    /* Asegúrate de que esté debajo del modal-content */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Un color semitransparente */
 }
 button.accordion-button {
-    z-index: 1000!important; /* Un valor más bajo que el modal */
+    z-index: 1000 !important;
+    /* Un valor más bajo que el modal */
     position: relative;
 }
 
@@ -47,8 +63,10 @@ button.accordion-button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    z-index: 1040; /* Debe estar debajo del modal pero encima de otros elementos */
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    z-index: 1040;
+    /* Debe estar debajo del modal pero encima de otros elementos */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,17 +74,22 @@ button.accordion-button {
 
 /* Contenido del Modal */
 .modal-content {
-    position: fixed; /* Asegura que el modal esté fijado en la pantalla */
+    position: fixed;
+    /* Asegura que el modal esté fijado en la pantalla */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra el modal en la pantalla */
-    z-index: 1050; /* Asegúrate de que esté por encima del overlay */
+    transform: translate(-50%, -50%);
+    /* Centra el modal en la pantalla */
+    z-index: 1050;
+    /* Asegúrate de que esté por encima del overlay */
     background: #fff;
     border-radius: 8px;
     padding: 20px;
-    width: 500px; /* Ajusta según tu diseño */
+    width: 500px;
+    /* Ajusta según tu diseño */
     max-width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para darle profundidad */
 }
 
 /* Header del Modal */
@@ -134,6 +157,39 @@ button.accordion-button {
 }
 
 
-textarea{
-    field-sizing:content;
+textarea {
+    field-sizing: content;
+}
+
+/*Estilos loader*/
+.loader {
+    width: var(--loader-width, 100%);
+    height: var(--loader-height, 10px);
+    border-radius: calc(var(--loader-height, 10px) / 2);
+    background: linear-gradient(270deg, #e0e0e0, #c0c0c0, #e0e0e0);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/*estilos para el nav del perfil*/
+.nav-perfil.active {
+    background-color: rgba(54, 0, 51, 0.8) !important;
+    /* Gradiente de fondo que combina con el fondo de la tarjeta */
+    color: #fff !important;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+}
+.nav-perfil{
+    color: rgba(54, 0, 51) !important
 }
