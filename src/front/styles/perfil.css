@@ -30,6 +30,17 @@
 >>>>>>> 50dc8f7 (form solicitud profesional finalizando)
 }
 
+.profile-image-container {
+    width: 100%;
+    max-width: 250px;
+    /* Ajusta según sea necesario */
+    aspect-ratio: 1 / 1;
+    /* Mantiene la relación de aspecto 1:1 */
+    position: relative;
+    margin: 0 auto;
+    /* Centra la imagen en el contenedor */
+}
+
 .profile-image {
     width: 100%;
     height: 100%;
