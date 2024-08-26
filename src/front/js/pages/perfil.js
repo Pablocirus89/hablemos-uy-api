@@ -120,7 +120,42 @@ const Perfil = () => {
                             </div>
                             <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                 <div className="container mt-3">
-                                   <FormSolicitudProf />
+                                    <h4 className="mb-3 text-inicio">Formulario de Solicitud de Perfil Profesional</h4>
+                                    <form>
+                                        <div className="mb-3">
+                                            <label htmlFor="nombreCompleto" className="form-label text-inicio"><strong>Nombre Completo</strong></label>
+                                            <input type="text" className="form-control" id="nombreCompleto" placeholder="Ingrese su nombre completo" required />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label htmlFor="cedula" className="form-label text-inicio"><strong>Cédula</strong></label>
+                                            <input type="text" className="form-control" id="cedula" placeholder="Ingrese su cédula" required />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label htmlFor="correo" className="form-label text-inicio"><strong>Correo Electrónico</strong></label>
+                                            <input type="email" className="form-control" id="correo" placeholder="Ingrese su correo electrónico" required />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label htmlFor="direccion" className="form-label text-inicio"><strong>Dirección</strong></label>
+                                            <input type="text" className="form-control" id="direccion" placeholder="Ingrese su dirección" required />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label htmlFor="escolaridad" className="form-label text-inicio"><strong>Escolaridad que Acredite Conocimientos</strong></label>
+                                            <input type="file" className="form-control" id="escolaridad" multiple required />
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <label htmlFor="motivacion" className="form-label text-inicio"><strong>¿Por qué quieres trabajar con nosotros?</strong></label>
+                                            <textarea className="form-control" id="motivacion" rows="4" placeholder="Cuéntanos tus motivaciones" required></textarea>
+                                        </div>
+                                        <div className="d-flex justify-content-center row mt-3 ">
+                                            <small className="text-inicio text-center">En el caso de que el equipo de RRHH te considere un buen candidato para integrar nuesto equipo de profesionales, se pondrán en contacto a la brevedad para coordinar una entrevista.</small>
+                                            <button type="submit" className=" col-12 col-md-8 btn btn-primary btn-login-registro mt-3">Enviar Solicitud</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
