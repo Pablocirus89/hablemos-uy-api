@@ -18,9 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			editarPerfil: async (nombre, apellido, descripcion, telefono, codigoArea, fechaNacimiento,is_psicologo) => {
+
+				console.log('Action editarPerfil(nombre, apellido, descripcion, telefono, codigoArea, fechaNacimiento,is_psicologo)',nombre, apellido, descripcion, telefono, codigoArea, fechaNacimiento,is_psicologo)
+
 				const store = getStore()
 				const actions =getActions()
-				console.log(nombre, apellido, descripcion, telefono, codigoArea, fechaNacimiento)
+	
 				if (store.dataUser) {
 					const options = {
 						method: 'POST',
@@ -74,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 			getMeetsPsicologo: async (namePsicologo) => {
+				console.log('Action getMeetsPsicologo (namePsicologo)', namePsicologo)
 
 				// Token de autenticación para la API de Calendly. //INHABILITADO
 				const tokenHablemosUy = 'eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzI0NzkyMTY0LCJqdGkiOiI5ZDZkODRiZS1mMmE3LTQ1OGYtYjRlZS01MWE2ZGEwZWU5MWYiLCJ1c2VyX3V1aWQiOiJkMjc2ZjFlNy02M2RkLTQ0NDgtOTNhNi0zYjU5OThlZTRjN2EifQ.Eda1NgoxzOG4wnl7IhgNI2F_YqZJx38ia5P6HbzcSgZ6z20X6zLGXRLN2byLNdQafAIzy1AFoKGxiWfxgbT-yA';
@@ -133,6 +137,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			getMeetsUser: async (emailUser) => {
+				console.log('Action getMeetsUser (emailUser)', emailUser)
+
 				// Token de autenticación para la API de Calendly.
 				const tokenHablemosUy = 'eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzI0NzkyMTY0LCJqdGkiOiI5ZDZkODRiZS1mMmE3LTQ1OGYtYjRlZS01MWE2ZGEwZWU5MWYiLCJ1c2VyX3V1aWQiOiJkMjc2ZjFlNy02M2RkLTQ0NDgtOTNhNi0zYjU5OThlZTRjN2EifQ.Eda1NgoxzOG4wnl7IhgNI2F_YqZJx38ia5P6HbzcSgZ6z20X6zLGXRLN2byLNdQafAIzy1AFoKGxiWfxgbT-yA';
 
@@ -163,6 +169,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			solicitudProfesional: async (formData) => {
+				console.log('Action solicitudProfesional (formData):', formData)
+
 				const options = {
 					method: 'POST',
 					body: formData,
@@ -179,6 +187,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//Obtengo el token de usuario para la sesión
 			iniciarSesion: async (correo, clave) => {
+				console.log('Action iniciarSesion (correo, clave)', correo, clave)
+
 				const actions = getActions();
 				const options = {
 					method: 'POST',
@@ -222,6 +232,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Fetch con ruta protegida para datos del perfil de usuario
 			getPerfilUsuario: async (id) => {
+				console.log('Action getPerfilUsuario (id)', id)
+
 				let token = localStorage.getItem('token');
 				const requestOptions = {
 					method: "GET",
@@ -239,6 +251,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					
 
 					if (response.ok) {
+						console.log('resuesta ok', response.status)
 						
 
 
@@ -256,6 +269,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Validación de token para contexto global
 			validToken: async () => {
+				console.log('Action validToken')
+
 				const token = localStorage.getItem('token');
 				if (!token) {
 					setStore({ logged: false });
@@ -297,6 +312,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Traemos psicologos de la base de datos
 			getPsicologos: async () => {
+				console.log('Action getPsicologos')
+
 				const store = getStore()
 
 
@@ -317,6 +334,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Cierre de sesión
 			cerrarSesion: () => {
+				console.log('Action cerrarSesion')
+
 				const store = getStore();
 				// Eliminamos el token del Local Storage
 				localStorage.removeItem('token');
@@ -327,6 +346,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Función para refrescar el token
 			refreshToken: async () => {
+				console.log('Action refreshToken')
+
 				const refresh_token = localStorage.getItem('refresh_token')
 				const options = {
 					method: 'POST',
@@ -352,6 +373,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// Función para verificar cuando el token está a punto de expirar
 			verificarToken: async () => {
+				console.log('Action verificarToken')
+				
 				const token = localStorage.getItem('token');
 				if (!token) return false;
 
@@ -366,6 +389,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// Manejo de recuperación de contraseña, token de recuperación y mail
 			solicitarRecuperacion: async (correo) => {
+				console.log('Action solicitarRecuperacion, correo', correo)
+
 				const options = {
 					method: 'POST',
 					headers: {
@@ -391,6 +416,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Enviamos la NUEVA contraseña usando el token de recuperación
 			restablecerClave: async (token, clave) => {
+				console.log('Action restablecerClave (token, clave)', token, clave)
+
 				const options = {
 					method: 'POST',
 					headers: {
@@ -416,6 +443,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Verificamos el token recibido desde la URL del link de verificación del correo
 			verifyToken: async (token) => {
+				console.log('Action verifyToken (token):', token)
+
 				const options = {
 					method: 'GET',
 					headers: {
@@ -457,6 +486,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			/* Hasta ésta línea de código estará trabajando Pablo */
 			register: async (nombre, apellido, fecha_de_nacimiento, codigo_de_area, telefono, foto, correo, clave) => {
+				console.log('Action register(nombre, apellido, fecha_de_nacimiento, codigo_de_area, telefono, foto, correo, clave)',nombre, apellido, fecha_de_nacimiento, codigo_de_area, telefono, foto, correo, clave)
+				
 				const options = {
 					method: 'POST',
 					headers: {
@@ -500,6 +531,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//cloudinary (IMAGENES)
 			uploadImage: async (data, cloud_name) => {
+				console.log('Action uploadImage (data, cloud_name)', data, cloud_name)
 				const actions = getActions()
 				const inputFile = new FormData()
 				inputFile.append("file", data)
@@ -521,7 +553,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			}
 		},
 			saveProfileImg: async (url) => {
-
+				console.log('Action saveProfileImg (url)', url)
 				const store = getStore()
 				const updateResponse = await fetch(process.env.BACKEND_URL + `/usuario/foto`, {
 					method: 'PUT',
@@ -538,7 +570,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return url
 			},
 			fetchEspecialidades: async () => {
-
+				console.log('Action fetchEspecialidades')
 				let token = localStorage.getItem("token")
 
 				try {
@@ -561,6 +593,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			saveEspecialidad : async (id) => {
+				console.log('Action saveEspecialidades (id)', id)
 				let token = localStorage.getItem("token")
 				const store=getStore()
 				const actions=getActions()
@@ -600,6 +633,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			obtenerEspecialidadesPorProfesional: async () => {
+				console.log('Action obtenerEspecialidadesPorProfesional')
 				const token = localStorage.getItem("token");
 				const url = `${process.env.BACKEND_URL}/especialidades-por-profesional`;
 
@@ -626,6 +660,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
 			eliminarEspecialidadPorProfesional: async (especialidadId) => {
+				console.log('Action eliminarEspecialidadPorProfesional (especialidadId):', especialidadId)
 				const store=getStore()
 				const token = localStorage.getItem("token");
 				const url = `${process.env.BACKEND_URL}/especialidades-por-profesional?especialidad_id=${especialidadId}`;

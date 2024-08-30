@@ -48,7 +48,7 @@ class User(db.Model):
             "nombre_usuario": self.nombre_usuario,
             "apellido": self.apellido,
             "descripcion": self.descripcion,
-            "fecha_de_nacimiento": self.fecha_de_nacimiento.isoformat(),
+            "fecha_de_nacimiento": self.fecha_de_nacimiento,
             "codigo_de_area": self.codigo_de_area,
             "telefono": self.telefono,
             "correo": self.correo,
