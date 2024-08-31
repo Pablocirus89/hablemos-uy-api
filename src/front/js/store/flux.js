@@ -277,7 +277,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ logged: true });
 						setStore({ dataUser: data.user });
 						return true;
-					}// else if (response.status === 404) {
+					}
+					// else if (response.status === 404) {
 					// 	setStore({ logged: false });
 					// 	localStorage.removeItem('token'); // Limpia el token
 					// 	return false;
@@ -366,6 +367,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// Manejo de recuperación de contraseña, token de recuperación y mail
 			solicitarRecuperacion: async (correo) => {
+				console.log('Action solicitarRecuperacion (correo):', correo)
 				const options = {
 					method: 'POST',
 					headers: {
@@ -391,6 +393,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//Enviamos la NUEVA contraseña usando el token de recuperación
 			restablecerClave: async (token, clave) => {
+				console.log('Action restablecerClave (token, clave):', token, clave)
 				const options = {
 					method: 'POST',
 					headers: {

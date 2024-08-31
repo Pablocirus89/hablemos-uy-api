@@ -51,6 +51,10 @@ const Perfil = () => {
         });
     }, []);
 
+    useEffect(()=>{
+        console.log(perfil)
+    },[perfil])
+
 
 
     const [showModal, setShowModal] = useState(false);
@@ -147,7 +151,7 @@ const Perfil = () => {
                             <strong className="text-inicio me-2">Teléfono: </strong>
                             {perfil?.telefono
                                 ? `${perfil?.codigo_de_area} ${perfil.telefono}` 
-                                : <Loader width="200px" height="15px" />}
+                                : perfil && !perfil.telefono ? 'Telefono no disponible' : <Loader width="200px" height="15px" />}
                         </div>
                         {perfil && perfil.is_psicologo && (
                             <div className="d-flex">
