@@ -37,7 +37,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                 apellido:apellido,
                 descripcion:descripcion,
                 telefono:telefono,
-                codigoArea:codigoArea,
+                codigo_de_area:codigoArea,
                 fechaNacimiento:fechaNacimiento
             })
         }

@@ -30,7 +30,10 @@ export const Login = () => {
 			});
 		};
 		gapi.load("client:auth2", start);
-
+	},[])
+	
+	useEffect(() => {
+		
 		const verificarToken = async () => {
 			if (token) {
 				const { success, message } = await actions.verifyToken(token);

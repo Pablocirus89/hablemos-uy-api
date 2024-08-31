@@ -20,8 +20,8 @@ export const Inicio = () => {
               style={{ objectFit: 'cover' }}
               alt="..."
             />
-            <div className="position-absolute  col-8 text-start text-light text-marron text-presentacion bg-opacity-50 p-3 rounded"
-              style={{ top: '50%', left: '40%', transform: 'translate(-50%, -50%)' }}>
+            <div className="position-absolute  col-10 col-md-8 ms-md-0 ms-2 text-start text-light text-marron text-presentacion bg-opacity-50 p-3 rounded"
+              style={{ top: '50%', left: '40%', transform: 'translate(-50%, -50%)', maxHeigth: '100%'}}>
               <h1 className="mb-4">Bienvenido a HablemosUY</h1>
               <h5>
                 HablemosUY es una plataforma de asistencia psicológica remota que conecta a psicólogos con usuarios que buscan apoyo y orientación profesional desde la comodidad de su hogar. Los psicólogos pueden registrarse para ofrecer sus servicios y sesiones, mientras que los usuarios tienen acceso a una gran variedad de especialistas para poder agendar sesiones de terapia según sus necesidades. Nuestro objetivo es facilitar el acceso a la salud mental, proporcionando un entorno seguro y accesible para todos.
