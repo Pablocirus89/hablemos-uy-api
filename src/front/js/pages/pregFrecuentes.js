@@ -25,7 +25,7 @@ const PregFrecuentes = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                Para registrarte, haz clic en el botón de <a href="/vista-register">"Registrarme"</a> en la parte inferior del formulario de inicio de sesión o en nuestra página de inicio. Completa el formulario con tus datos y si todo es correcto recibirás un correo con un enlace para activar tu cuenta. Este paso es necesario aunque te registres a través del servicio de registro de Google, este proceso de verificación solo se realizará la primer vez que vayas a iniciar sesión.
+                Para registrarte, haz clic en el botón de <a href="/vista-register">"Registrarme"</a> en la parte inferior del formulario de inicio de sesión o en nuestra página de inicio. Completa el formulario con tus datos y si todo es correcto recibirás un correo con un enlace para activar tu cuenta. Este paso es necesario aunque te registres a través del servicio de registro de Google. Este proceso de verificación solo se realizará la primer vez que vayas a iniciar sesión en nuestro sitio.
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ const PregFrecuentes = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-              En nuestra página de inicio de sesión haz clic en <a href="/vista-login">"Olvidé mi contraseña"</a>, se desplegará un modal en el que deberás ingresar tu correo y enviarlo. Recibirás un mail de HablemosUY Salud Mental para restablecer o cambiar tu contraseña siguiendo las instrucciones desde el enlace y una vez completado este proceso ya puedes iniciar sesión con la nueva contraseña que hayas establecido.
+              En nuestra página de inicio de sesión haz clic en <a href="/vista-login">"Olvidé mi contraseña"</a>, se desplegará un modal en el que deberás ingresar tu correo y enviarlo. Recibirás un mail de HablemosUY Salud Mental para restablecer o cambiar tu contraseña siguiendo las instrucciones desde el enlace. Una vez completado este proceso ya puedes iniciar sesión con la nueva contraseña que hayas establecido. Debes tener en cuenta que gestionamos sólo las contraseñas que se generan en los registros realizados en el fomulario de registro de nuestro sitio, si te haz registrado con el servicio de Google y tienes algun inconveniente con tu contraseña, deberás gestionar tu recupeación son su servicio.
               </div>
             </div>
           </div>
@@ -65,7 +65,7 @@ const PregFrecuentes = () => {
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                <span className="fw-medium">¿Qué métodos de pago aceptamos?</span>               
+                <span className="fw-medium">¿Cómo puedo unirme al equipo de profesionales?</span>               
               </button>
             </h2>
             <div
@@ -75,7 +75,7 @@ const PregFrecuentes = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                Aceptamos todas las tarjetas de crédito, <a href="/">PayPal</a> y transferencias bancarias.
+                En tu sección "Perfil" encontrarás una pestaña que contiene el formulario donde se te solicitará la información y documentación correspondiente. Algunos de los documentos requeridos son Título de Licenciado en Psicología, Registro en el Ministerio de Salud Pública (MSP), Currículum Vitae, Certificaciones Especializadas, Membresía en Asociaciones Profesionales (opcional), Participación en Congresos, Talleres y Cursos de Capacitación (opcional), y la documentación complementaria que consideres. Nuestro equipo de RR.HH verificará tus credenciales, acreditaciones y perfil, comunicándonos a la brevedad vía mail para informarte si haz sido selecionado/a para formar parte de nuestro equipo de expertos.
               </div>
             </div>
           </div>

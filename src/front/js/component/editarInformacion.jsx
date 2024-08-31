@@ -124,19 +124,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                         <option value="+598">Uruguay (+598)</option>
                         <option value="+58">Venezuela (+58)</option>
                     </datalist>
-                </div>
-
-                <div className="mb-3">
-                    <label htmlFor="fechaNacimiento" className="form-label text-inicio"><strong>Fecha de Nacimiento</strong></label>
-                    <input
-                        type="date"
-                        className="form-control"
-                        id="fechaNacimiento"
-                        value={fechaNacimiento}
-                        onChange={(e) => setFechaNacimiento(e.target.value)}
-                        required
-                    />
-                </div>
+                </div>              
 
                 <div className="d-flex justify-content-center row mt-3">
                     <small className="text-inicio text-center">

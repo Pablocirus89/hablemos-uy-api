@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Context } from '../store/appContext';
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 const FormSolicitudProf = () => {
     const { store, actions } = useContext(Context);
@@ -119,7 +120,7 @@ const FormSolicitudProf = () => {
 
                 <div className="d-flex justify-content-center row mt-3">
                     <small className="text-inicio text-center">
-                        La información que nos ha proporcionado será sometida a un proceso de evaluación por nuestro equipo de RRHH. De cumplir con nuestros requisitos para integrar nuestro equipo de profesionales, no podremos en contacto con usted a la brevedad para coordinar una entrevista.
+                        La información que nos ha proporcionado será sometida a un proceso de evaluación por nuestro equipo de RRHH. De cumplir con nuestros requisitos para integrar nuestro equipo de profesionales, nos podremos en contacto con usted a la brevedad para coordinar una entrevista. Si necesita más detalles sobre la información que requerimos los encontrará en nuestra sección de <Link to="/preguntas-frecuentes" className="login__forgot">preguntas frecuentes.</Link>
                     </small>
                     <button type="submit" className="col-12 col-md-8 btn btn-primary btn-login-registro mt-3">Enviar Solicitud</button>
                 </div>
