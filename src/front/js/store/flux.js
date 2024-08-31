@@ -277,7 +277,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ logged: true });
 						setStore({ dataUser: data.user });
 						return true;
-					}// else if (response.status === 404) {
+					}
+					// else if (response.status === 404) {
 					// 	setStore({ logged: false });
 					// 	localStorage.removeItem('token'); // Limpia el token
 					// 	return false;

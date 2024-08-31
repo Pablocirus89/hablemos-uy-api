@@ -82,19 +82,11 @@ const SimpleCarousel = () => {
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">
-                                            <h5 className="card-title my-3">{elm.nombre}</h5>
+                                            <h2 className="card-title text-inicio my-3">{elm.nombre}</h2>
                                             {elm.especialidades.map((esp, inx) => (
                                                 <h6 className="card-text" key={inx}>{esp}</h6>
                                             ))}
-                                            <p className="card-text"><small className="text-body-secondary">{elm.descripcion}</small></p>
-                                            <ReactStars
-                                                count={5}
-                                                value={elm.calificacion}
-                                                size={40}  // Tamaño de las estrellas
-                                                isHalf={true}  // Permite calificación en medio punto
-                                                activeColor="#ffd700"  // Color de las estrellas activas
-                                                edit={false}  // Desactiva la edición
-                                            />
+                                            <p className="card-text text-body-secondary">{elm.descripcion}</p>
                                         </div>
                                     </div>
                                 </div>

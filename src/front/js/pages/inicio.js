@@ -49,18 +49,18 @@ export const Inicio = () => {
       </section>
       <section className="px-5 d-flex flex-column align-items-center">
         <div className="my-auto">
-          <h2 className="text-inicio my-5 text-center">¿Cómo funciona?</h2>
-          <div className="row justify-content-center text-center">
+          <h1 className="text-inicio my-5 text-center display-1">¿Cómo funciona?</h1>
+          <div className="row justify-content-evenly text-center">
 
-            <InfoCard title={<Link to={store.logged == false && "/vista-register"} className="text-dark fs-3 text-decoration-none">Regístrate</Link>}
+            <InfoCard title={<Link to={store.logged == false && "/vista-register"} className="text-cardInfo fs-3 text-decoration-none">Regístrate</Link>}
               description={"Para poder agendar una sesión con uno de nuestros profesionales, primero debes registrarte, sólo toma 1 minuto y es gratis."}
               icono={"fa-solid fa-arrow-right"} />
 
-            <InfoCard title={<Link to={store.logged == true ? "/profesionales" : "/vista-login"} className="text-dark fs-3 text-decoration-none">Agendar sesión</Link>}
+            <InfoCard title={<Link to={store.logged == true ? "/profesionales" : "/vista-login"} className="text-cardInfo fs-3 text-decoration-none">Agendar sesión</Link>}
               description={"Luego de registrarte, puedes ver la lista de nuestros profesionales y sus especialidades, ver qué días y horarios tienen disponibles y agendar en el que más prefieras."}
               icono={"fa-regular fa-calendar-days"} />
 
-            <InfoCard title={<Link to={store.logged == false && "/vista-login"} className="text-dark fs-3 text-decoration-none">Ingresar a la sesión</Link>}
+            <InfoCard title={<Link to={store.logged == false && "/vista-login"} className="text-cardInfo fs-3 text-decoration-none">Ingresar a la sesión</Link>}
               description={"Por último, debes acceder al sitio el día agendado, donde tendrá lugar la sesión con el/la profesional."}
               icono={"fa-regular fa-comments"} />
           </div>
@@ -68,7 +68,7 @@ export const Inicio = () => {
       </section>
       <section className="d-flex flex-column">
         <div className="my-auto">
-          <h2 className="text-inicio my-5 text-center">Profesionales Destacados</h2>
+          <h2 className="text-inicio my-5 text-center display-1">Profesionales Destacados</h2>
           <div className="row justify-content-center">
             <ProfDestacados />
           </div>

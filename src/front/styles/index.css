@@ -9,33 +9,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
-.colores {
-  background-color: ;
-}
 
 
-/* body {
-    background-color: #ddc3d0;
-} */
 body {
   background-color: #f4f2ee;
   font-family: "Quicksand", sans-serif !important;
 }
 
-/* body {
-  background-color: #453643;
-}
-body {
-  background-color: #a9d7cc;
-} */
-
 nav+div {
   min-height: 100vh;
 }
 
-* {
+/* * {
   box-sizing: border-box !important;
-}
+} */
 
 html,
 body {
@@ -80,20 +67,49 @@ video {
 }
 
 .text-nav {
-  color: #453643 !important;
+  color: #ffffff !important;
   font-size: 20px !important;
+  font-weight: 500;
+  /* Ajusta el grosor del texto */
+  transition: 0.5s ease
 }
 
-@media (max-width: 981px) {
-  .text-nav {
-    color: #ddc3d0 !important;
-    /* Cambia este color al que prefieras */
-  }
+.text-nav:hover {
+  color: #a9d7cc !important;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 .logo {
   width: 50px;
   height: 50px;
+}
+
+/* #a9d7cc
+    #7e78d2
+    #453643
+    #ddc3d0 */
+
+.info-card {
+  border: none;
+  color: #453643;
+  /* Color del texto */
+  background: linear-gradient(180deg,
+      #453643, #ddc3d0, #ddc3d0) !important;
+}
+
+.info-card i {
+  color: #53e2c1;
+
+}
+
+.text-cardInfo {
+  color: #350436 !important;
+  transition: 0.5s ease
+}
+
+.text-cardInfo:hover {
+  color: #350436 !important;
+  text-shadow: 3px 3px 3px #53e2c1 !important;
 }
 
 /* Estilos para sections y cards */
@@ -131,9 +147,12 @@ section {
   background-color: #453643;
   border: 2px solid #ddc3d0;
   color: #ddc3d0;
-  padding: 15px 30px; /* Aumenta el tamaño del botón */
-  font-size: 1.2rem; /* Aumenta el tamaño de la letra */
-  margin: 10px 0; /* Agrega separación entre los botones */
+  padding: 15px 30px;
+  /* Aumenta el tamaño del botón */
+  font-size: 1.2rem;
+  /* Aumenta el tamaño de la letra */
+  margin: 10px 0;
+  /* Agrega separación entre los botones */
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -156,9 +175,7 @@ section {
   text-shadow: 1px 1px 2px rgba(69, 54, 67, 1);
 }
 
-.boton-inicio{
-
-}
+.boton-inicio {}
 
 .card.card-emergencia {
   background: white !important;
@@ -186,19 +203,29 @@ section {
   display: none !important;
 }
 
+.text-celeste {
+  color: #53e2c1
+}
+
 /* Estilo base para la tarjeta */
 .card.profesional {
   height: auto;
   /* Permite que la tarjeta se ajuste automáticamente */
   overflow: hidden;
   /* Evita el desbordamiento */
-  background: linear-gradient(90deg, rgba(54, 0, 51, 0.3), rgba(11, 135, 147, 0.3));
+  background: linear-gradient(90deg,
+      rgba(58, 48, 57, 0.479),
+      /* Marrón oscuro con 30% de opacidad */
+      rgba(221, 195, 208, 0.3)
+      /* Color claro con 30% de opacidad */
+    ) !important;
+  border: none !important;
 }
 
 /* Media query para pantallas a partir de 768px */
 @media (min-width: 768px) {
   .card.profesional {
-    height: 300px;
+    min-height: 300px;
     /* Altura máxima de 300px en pantallas medianas y grandes */
   }
 }
@@ -215,15 +242,22 @@ section {
     /* Espacio para el botón en pantallas pequeñas */
   }
 
-  .button-container {
-    position: static;
-    /* Hace que el botón se coloque en el flujo normal del documento */
-    margin-top: 10px;
-    /* Añade margen superior para separación */
-  }
-
-
 }
+.especialidad-tag {
+  display: inline-block;
+  background-color: #a9d7cc; /* Color de fondo de la etiqueta */
+  border: 2px solid #350436;
+  color: #350436; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno de la etiqueta */
+  border-radius: 15px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de la fuente */
+  font-weight: 800 !important; /* Grosor de la fuente */
+}
+
+.especialidad-tag:not(:last-child) {
+  margin-right: 5px; /* Espacio entre etiquetas */
+}
+
 
 /* Ajustes para pantallas medianas */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -237,11 +271,6 @@ section {
     /* Espacio para el botón en pantallas medianas */
   }
 
-  .button-container {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-  }
 }
 
 /* Ajustes para pantallas grandes */
@@ -264,52 +293,43 @@ section {
 }
 
 /* Estilo base para el botón custom-btn */
+/* Estilo base para el botón custom-btn */
 .btn.custom-btn {
-  background: linear-gradient(90deg, rgba(54, 0, 51, 0.8), rgba(11, 135, 147, 0.8));
-  /* Gradiente de fondo que combina con el fondo de la tarjeta */
-  color: #fff;
-  /* Color del texto */
-  border: none;
-  /* Sin borde */
-  padding: 10px 20px;
-  /* Espaciado del botón */
-  border-radius: 5px;
-  /* Bordes redondeados */
-  font-size: 16px;
-  /* Tamaño de fuente */
-  transition: background 0.3s ease, transform 0.3s ease;
-  /* Transiciones para el fondo y el tamaño */
-}
-
-.fas:hover {
-  color: red;
-  cursor: pointer;
+  background-color: #453643;
+  border: 2px solid #ddc3d0;
+  color: #ddc3d0;
+  padding: 15px 30px; /* Aumenta el tamaño del botón */
+  font-size: 1.2rem; /* Aumenta el tamaño de la letra */
+  margin: 10px 0; /* Agrega separación entre los botones */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 /* Efecto hover para el botón custom-btn */
 .btn.custom-btn:hover {
-  background: linear-gradient(90deg, rgba(54, 0, 51, 1), rgba(11, 135, 147, 1));
-  /* Fondo más intenso al pasar el ratón */
-  transform: scale(1.05);
-  /* Aumenta el tamaño del botón ligeramente */
+  background-color: #a9d7cc;
+  color: #350436;
+  border-color: #350436;
+  transform: scale(1.05); /* Aumenta el tamaño del botón ligeramente */
 }
 
 /* Efecto active para el botón custom-btn */
 .btn.custom-btn:active {
-  background: linear-gradient(90deg, rgba(54, 0, 51, 1), rgba(11, 135, 147, 1));
-  /* Fondo del botón al hacer clic */
-  transform: scale(0.95);
-  /* Reduce el tamaño del botón ligeramente */
+  background-color: #ddc3d0;
+  color: #453643;
+  transform: scale(0.95); /* Reduce el tamaño del botón ligeramente */
 }
 
 /* Efecto focus para el botón custom-btn */
 .btn.custom-btn:focus {
-  outline: none;
-  /* Quita el contorno por defecto */
-  box-shadow: 0 0 0 2px rgba(11, 135, 147, 0.5);
-  /* Añade una sombra alrededor del botón al estar en foco */
+  outline: none; /* Quita el contorno por defecto */
+  box-shadow: 0 0 0 2px rgba(11, 135, 147, 0.5); /* Añade una sombra alrededor del botón al estar en foco */
 }
 
+
+.fas:hover {
+  cursor: pointer;
+}
 /*Estilos flechas carrusel*/
 .slick-next {
   visibility: visible;
