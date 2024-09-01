@@ -4,7 +4,7 @@
 services:
     - type: web # valid values: https://render.com/docs/yaml-spec#type
       region: ohio
-      name: HablemosUY
+      name: sample-service-name
       env: python # valid values: https://render.com/docs/yaml-spec#environment
       buildCommand: "./render_build.sh"
       startCommand: "gunicorn wsgi --chdir ./src/"
@@ -27,7 +27,7 @@ services:
                 property: connectionString
 
 databases: # Render PostgreSQL database
-    - name: hablemosuy-trapezoidal-42170
+    - name: postgresql-trapezoidal-42170
       region: ohio
       ipAllowList: [] # only allow internal connections
       plan: free # optional; defaults to starter
