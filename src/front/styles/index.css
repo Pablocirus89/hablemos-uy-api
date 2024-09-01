@@ -19,6 +19,62 @@ body {
 nav+div {
   min-height: 100vh;
 }
+/* Estilos para el botón .btn-nav */
+.btn-nav {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #53435073;
+  border: none;
+  color: #53e2c1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo */
+.btn-nav:active {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643 !important;
+  border: 2px solid #53e2c1 !important;
+  color: #53e2c1 !important;
+}
+
+/* Estilo cuando el botón está en hover */
+.btn-nav:hover {
+  font-weight: 500;
+  color: #350436;
+  background-color: #a9d7cc;
+  border: none;
+}
+
+
+
+.btn-modal {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: rgba(66, 53, 64, 0.863);
+  border: none;
+  color: #53e2c1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo */
+.btn-modal:active {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643 !important;
+  border: 2px solid #53e2c1 !important;
+  color: #53e2c1 !important;
+}
+
+/* Estilo cuando el botón está en hover */
+.btn-modal:hover {
+  font-weight: 500;
+  color: #350436;
+  background-color: #a9d7cc;
+  border: none;
+}
+
+
 
 /* * {
   box-sizing: border-box !important;
@@ -75,6 +131,19 @@ video {
 }
 
 .text-nav:hover {
+  color: #a9d7cc !important;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.text-footer {
+  color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 500;
+  /* Ajusta el grosor del texto */
+  transition: 0.5s ease
+}
+
+.text-footer:hover {
   color: #a9d7cc !important;
   text-shadow: 1px 1px 2px #000000;
 }
@@ -138,7 +207,7 @@ section {
     #453643
     #ddc3d0 */
 .text-presentacion {
-  background: linear-gradient(90deg, rgba(69, 54, 67, 0.5), rgba(221, 195, 208, 0)) !important;
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.8), rgba(221, 195, 208, 0)) !important;
 }
 
 
@@ -182,7 +251,8 @@ section {
 }
 
 .card-emergencia .card-header {
-  background: linear-gradient(90deg, rgba(54, 0, 51, 0.3), rgba(11, 135, 147, 0.3)) !important;
+  color: #350436 !important;
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.3), rgba(221, 195, 208, 0.3)) !important;
 }
 
 /* Estilos para los acordeones */
@@ -191,7 +261,11 @@ section {
 }
 
 .accordion-button {
-  background: linear-gradient(90deg, rgba(54, 0, 51, 0.3), rgba(11, 135, 147, 0.3)) !important;
+  color: #350436 !important;
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.3), rgba(221, 195, 208, 0.3)) !important;
+}
+.accordion-button::after {
+  color: #350436 !important;
 }
 
 .accordion-button:focus {

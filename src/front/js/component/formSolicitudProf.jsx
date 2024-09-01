@@ -39,13 +39,13 @@ const FormSolicitudProf = () => {
 
     return (
         <div className="col-md-12 text-start profile-info">
-            <h4 className="mb-3 text-inicio">Formulario de Solicitud de Perfil Profesional</h4>
+            <h4 className="mb-3 text-inicio">Solicitud de Perfil Profesional</h4>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="nombreCompleto" className="form-label text-inicio"><strong>Nombre Completo</strong></label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="nombreCompleto" 
                         placeholder="Ingrese su nombre completo" 
                         value={nombreCompleto} 
@@ -58,7 +58,7 @@ const FormSolicitudProf = () => {
                     <label htmlFor="cedula" className="form-label text-inicio"><strong>Cédula o pasaporte</strong></label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="cedula" 
                         placeholder="Ingrese su número de documento" 
                         value={cedula} 
@@ -71,7 +71,7 @@ const FormSolicitudProf = () => {
                     <label htmlFor="correo" className="form-label text-inicio"><strong>Correo Electrónico</strong></label>
                     <input 
                         type="email" 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="correo" 
                         placeholder="Ingrese su correo electrónico" 
                         value={correo} 
@@ -84,7 +84,7 @@ const FormSolicitudProf = () => {
                     <label htmlFor="direccion" className="form-label text-inicio"><strong>Dirección</strong></label>
                     <input 
                         type="text" 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="direccion" 
                         placeholder="Ingrese su dirección" 
                         value={direccion} 
@@ -97,7 +97,7 @@ const FormSolicitudProf = () => {
                     <label htmlFor="escolaridad" className="form-label text-inicio"><strong>Adjunte la documentación que acredite su formación profesional</strong></label>
                     <input 
                         type="file" 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="escolaridad" 
                         multiple 
                         onChange={(e) => setEscolaridad(e.target.files)} 
@@ -108,7 +108,7 @@ const FormSolicitudProf = () => {
                 <div className="mb-3">
                     <label htmlFor="motivacion" className="form-label text-inicio"><strong>¿Por qué le gustaría trabajar con nosotros?</strong></label>
                     <textarea 
-                        className="form-control" 
+                        className="form-control input-beige" 
                         id="motivacion" 
                         rows="4" 
                         placeholder="Cuéntanos tus motivaciones" 

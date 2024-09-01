@@ -123,7 +123,7 @@ export const Register = () => {
 	return (
 
 		<div className="form-container mb-3  border border-3 rounded p-4">
-			<p className="title fw-semibold text-secondary text-center">Registrarse</p>
+			<p className="title fw-semibold text-secondary text-center">Registro</p>
 			<form className="row g-3 d-flex" onSubmit={formik.handleSubmit}>
 				<div className="col-md-6">
 					<input

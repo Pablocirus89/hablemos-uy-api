@@ -53,7 +53,7 @@ export const ChangePassword = () => {
 	return (
 		<div className="form-container2 text-center mb-3 border border-3 rounded">
 			<form action="#" id="login-form" onSubmit={formik.handleSubmit}>
-				<h2 className="title fw-semibold text-secondary">Ingresa tu nueva contraseña</h2>
+				<h2 className="title fw-semibold">Ingresa tu nueva contraseña</h2>
 
 				<div className="d-flex justify-content-center flex-column align-items-center">
 					<div className="input-group mb-3">

@@ -196,12 +196,17 @@ textarea {
         background-position: 0 0;
     }
 }
+.btn-meet{
+    background-color: #534350 !important;
+    color: #53e2c1 !important;
+    border: none;
+}
 
 /*estilos para el nav del perfil*/
 .nav-perfil.active {
-    background-color: rgba(54, 0, 51, 0.8) !important;
+    background-color: #534350 !important;
     /* Gradiente de fondo que combina con el fondo de la tarjeta */
-    color: #fff !important;
+    color: #53e2c1 !important;
     /* Color del texto */
     border: none;
     /* Sin borde */

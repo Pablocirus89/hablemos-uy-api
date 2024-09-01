@@ -51,7 +51,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <label htmlFor="nombre" className="form-label text-inicio"><strong>Nombre</strong></label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control input-beige"
                         id="nombre"
                         placeholder="Ingrese su nombre"
                         value={nombre}
@@ -64,7 +64,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <label htmlFor="apellido" className="form-label text-inicio"><strong>Apellido</strong></label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control input-beige"
                         id="apellido"
                         placeholder="Ingrese su apellido"
                         value={apellido}
@@ -76,7 +76,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <div className="mb-3">
                         <label htmlFor="descripcion" className="form-label text-inicio"><strong>Descripción profesional</strong></label>
                         <textarea
-                            className="form-control"
+                            className="form-control input-beige"
                             id="descripcion"
                             rows="4"
                             placeholder="Ingrese una breve descripción sobre usted"
@@ -93,7 +93,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <label htmlFor="telefono" className="form-label text-inicio"><strong>Teléfono</strong></label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control input-beige"
                         id="telefono"
                         placeholder="Ingrese su número de teléfono"
                         value={telefono}
@@ -106,7 +106,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <label htmlFor="codigo_de_area_input" className="form-label text-inicio"><strong>Código de Área</strong></label>
                     <input
                         list="codigos-pais"
-                        className="form-control"
+                        className="form-control input-beige"
                         id="codigo_de_area_input"
                         name="codigo_de_area"
                         placeholder="+589"
