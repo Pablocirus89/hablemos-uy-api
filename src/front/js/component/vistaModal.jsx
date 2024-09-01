@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import "/workspaces/hablemos-uy-api/src/front/styles/modalProfile.css";
+import "../../styles/modalProfile.css";
 import defaultAvatar from "../../img/avatar.jpg";
 import TrashButton from "../component/trashButton.jsx";
 import SaveButton from "../component/saveButton.jsx";
