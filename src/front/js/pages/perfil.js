@@ -1,30 +1,113 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/perfil.css"
-
+import { useNavigate, useParams } from "react-router-dom";
+import "../../styles/perfil.css";
+import VistaModal from "../component/vistaModal.jsx";
+import defaultAvatar from "../../img/avatar.jpg";
+import Loader from "../component/loader.jsx";
+import FormSolicitudProf from "../component/formSolicitudProf.jsx";
+import MercadoPagoComponent from "../component/MercadoPago.jsx";
+import Swal from 'sweetalert2'
+import Meets from "../component/meets.jsx";
+import EditarInformacion from "../component/editarInformacion.jsx";
+// ID cliente: RrLt2R0t0jbTXChSFJLFIPaSMniKYriRIi6kxAszsWA
+// Secreto de cliente: qdg4iNfaJf7ihnst8Ln4rbtDP3DTBLXl7Q6ZOmC9g_g
+// Clave de firma WebHook: wxCO2fVy0HgDGrihAZuw4y8pZWunAu27OS5ghje2_M8
+// Token: eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzI0Njk1NjU3LCJqdGkiOiI1MTg5ZmExNC00YWVhLTQ2YjktYTQzOS1hOGQzZTY5MGUxYmMiLCJ1c2VyX3V1aWQiOiI2NzZiNTI3NS01NWYzLTRlODgtOTk0ZC00MjQxMzA3YWE0YzgifQ.0tCtUEuUVaMdIACWrxeIWkh6q6ssHOLperR4Yp4_J11rPwITlcDeerMws6PpuT0aAsHLVWOI7gf8WQmuH_L9cQ
+// URI user hablemosuy : https://api.calendly.com/users/676b5275-55f3-4e88-994d-4241307aa4c8
 
 const Perfil = () => {
-    const { store, actions } = useContext(Context)
-
+    const { store, actions } = useContext(Context);
+    const [perfil, setPerfil] = useState({});
+    const navigate = useNavigate();
+    const { id } = useParams();
     useEffect(() => {
-        
-      // Inicializar los popovers (sin guardar en una variable)
+        // Lógica para cargar el perfil primero desde el store si está disponible
+        if (store.dataUser) {
+            setPerfil(store.dataUser);
+        } else {
+            // Si no está en el store, hacer la solicitud para obtener el perfil
+            actions.getPerfilUsuario(id).then((isPerfilObtenido) => {
+                if (isPerfilObtenido) {
+                    setPerfil(isPerfilObtenido);
+                } else {
+                    Swal.fire({
+                        title: 'Error al obtener el perfil',
+                        text: 'Hubo un problema al cargar sus datos. Por favor, intente de nuevo.',
+                        icon: 'error',
+                        confirmButtonText: 'Entendido'
+                    }).then(() => {
+                        navigate("/vista-login");
+                    });
+                }
+            });
+        }
+
+        actions.fetchEspecialidades();
+
+        // Inicializar los popovers de Bootstrap
         document.querySelectorAll('[data-bs-toggle="popover"]').forEach(popoverTriggerEl => {
             new bootstrap.Popover(popoverTriggerEl);
-        //Llamamos a función de ruta protegida
-        actions.getPerfilUsuario()
         });
     }, []);
 
+    useEffect(()=>{
+        console.log(perfil)
+    },[perfil])
+
+
+
+    const [showModal, setShowModal] = useState(false);
+    // const [selectedEspecialidades, setSelectedEspecialidades] = useState([]);
+
+    // Función para mostrar el modal
+
+    const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
+
+    // Manejar la selección de especialidades
+    // const handleEspecialidadChange = (id) => {
+    //     setSelectedEspecialidades(prev =>
+    //         prev.includes(id) ? prev.filter(e => e !== id) : [...prev, id]
+    //     );
+    // };
+
+    // Guardar las especialidades seleccionadas
+    const saveEspecialidad = async (id) => {
+        let resp = await actions.saveEspecialidad(id);
+        if (resp) {
+            //await actions.obtenerEspecialidadesPorProfesional(); // Recargar las especialidades después de guardar
+            setPerfil({ ...perfil, especialidades: [...perfil.especialidades, resp] })
+        }
+    };
+    const deleteEspecialidad = async (id) => {
+        let resp = await actions.eliminarEspecialidadPorProfesional(id);
+        if (resp) {
+            //await actions.obtenerEspecialidadesPorProfesional(); // Recargar las especialidades después de guardar
+            setPerfil({ ...perfil, especialidades: perfil.especialidades.filter(item => item.especialidad_id != id) })
+        }
+    };
+
+    // Mostrar las especialidades ya guardadas para el usuario
+    // const userEspecialidades = perfil?.especialidades || [];
+
+   
+    
+
+
+
     return (
-        <div className="container mt-4 col-md-8">
+        <div className="container mt-4 col-11 col-md-10 col-lg-8" style={{ minHeight: '73vh' }}>
             <div className="row align-items-center user-profile">
                 <div className="col-md-4 text-center position-relative">
-                    <img src="https://th.bing.com/th/id/OIP.hmLglIuAaL31MXNFuTGBgAHaHa?rs=1&pid=ImgDetMain"
-                        alt="User Image"
-                        className="img-fluid rounded-circle profile-image"
-                    />
-                    <button className="btn btn-light position-absolute align-items-center d-flex"
+                    <div className="profile-image-container">
+                        <img src={perfil?.foto || defaultAvatar}
+                            alt="User Image"
+                            className="profile-image"
+                        />
+                    </div>
+                    <button
+                        className="btn btn-secondary position-absolute align-items-center d-flex"
                         style={{
                             borderRadius: "50%",
                             height: "40px",
@@ -32,87 +115,144 @@ const Perfil = () => {
                             top: "15%",
                             left: "85%",
                             transform: "translate(-50%, -50%)",
-                            backgroundColor: "#afb4b8"
+                            backgroundColor: "#c1b4c3"
                         }}
-                        onClick={() => alert("Edit image clicked!")}>
-                        <i className="fa-regular fa-pen-to-square"></i>
+                        onClick={openModal}
+                    >
+                        <i className="fa-regular text-secondary fa-pen-to-square"></i>
                     </button>
+                    {showModal && (
+                        <VistaModal
+                            show={showModal}
+                            onClose={closeModal}
+                            imageSrc={perfil?.foto || null}
+                            onDelete={() => {
+                                // Aquí puedes agregar la lógica para eliminar la foto de perfil si es necesario.
+                            }}
+                        />
+                    )}
                 </div>
+
                 <div className="col-md-8 text-md-start text-center mt-3 mt-md-0 profile-info">
-                    <h2>Nombre del Usuario</h2>
+                    <h2 className="text-inicio">
+                        {perfil?.nombre_usuario && perfil?.apellido
+                            ? `${perfil.nombre_usuario} ${perfil.apellido}`
+                            : <Loader width="300px" height="35px" />}
+                    </h2>
+                    <div className="personal-info text-start mt-3 mb-2">
+                       
+                        <div className="d-flex align-items-center">
+                            <strong className="text-inicio me-2">Email: </strong>
+                            {perfil?.correo
+                                ? perfil.correo
+                                : <Loader width="350px" height="15px" />}
+                        </div>
+                        <div className="d-flex align-items-center">
+                            <strong className="text-inicio me-2">Teléfono: </strong>
+                            {perfil?.telefono
+                                ? `${perfil?.codigo_de_area} ${perfil.telefono}` 
+                                : perfil && !perfil.telefono ? 'Telefono no disponible' : <Loader width="200px" height="15px" />}
+                        </div>
+                        {perfil && perfil.is_psicologo && (
+                            <div className="d-flex">
+                                <strong className="text-inicio me-2">Descripción profesional: </strong>
+                                {perfil?.descripcion
+                                    ? perfil.descripcion
+                                    : <Loader width="300px" height="15px" />}
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <div className="accordion mt-3" id="accordionExample">
-                    <div className="accordion-item">
-                        <h2 className="accordion-header">
-                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Información personal
-                            </button>
-                        </h2>
-                        <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                <div className="container mt-4">
-                                    <div className="row align-items-center">
-                                        <div className="col-md-8">
-                                            <p><strong>Nombre:</strong> Juan Pérez</p>
-                                            <p><strong>Email:</strong> juan.perez@example.com</p>
-                                            <p><strong>Teléfono:</strong> +598 1234 5678</p>
-                                        </div>
-                                        <div className="col-md-4 text-end align-self-start d-flex justify-content-end">
-                                            <span className="d-inline-block" tabindex="0" data-bs-placement="left" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Esta información solo está disponible para tí y para los profesionales con los que agendes cita, nadie más puede acceder a ella.">
-                                                <button className="btn btn-outline-secondary me-2" type="button" ><i className="fa-regular fa-circle-question"></i></button>
-                                            </span>
-                                            <button className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i className="fa-regular fa-pen-to-square"></i></button>
-                                            
-                                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div className="modal-dialog">
-                                                    <div className="modal-content">
-                                                        <div className="modal-header">
-                                                            <h1 className="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                                                        </div>
-                                                        <div className="modal-body">
-                                                            ...
-                                                        </div>
-                                                        <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" className="btn btn-primary">Understood</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+            </div>
+
+            <div className="container mt-4">
+                <div className="row">
+                    <div className="col-12 col-md-4">
+                        <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <button className="nav-link active nav-perfil" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{perfil && perfil.is_psicologo ? 'Agendas de pacientes' : 'Mis agendass'}</button>
+                            <button className="nav-link nav-perfil" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Métodos de pago</button>
+                            {perfil && perfil.is_psicologo ==true ? (
+                                <button className="nav-link nav-perfil" id="v-pills-especialidad-tab" data-bs-toggle="pill" data-bs-target="#v-pills-especialidad" type="button" role="tab" aria-controls="v-pills-especialidad" aria-selected="false">Mis especialidades</button>
+                            ) : perfil.is_psicologo==false && (
+                                <button className="nav-link nav-perfil" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Solicitud de perfil profesional</button>
+                            )
+                            }
+                            {/* {perfil && !perfil.is_psicologo && (
+                                <button className="nav-link nav-perfil" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Solicitud de perfil profesional</button>
+                            )}*/}
+                            <button className="nav-link nav-perfil" id="vi-pills-edit-info-tab" data-bs-toggle="pill" data-bs-target="#vi-pills-edit-info" type="button" role="tab" aria-controls="vi-pills-edit-info" aria-selected="false">Editar mi información</button>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-8">
+                        <div className="tab-content" id="v-pills-tabContent">
+                            <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                <Meets />
+                            </div>
+                            <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                <MercadoPagoComponent/>
+                            </div>
+                            <div className="tab-pane fade" id="v-pills-especialidad" role="tabpanel" aria-labelledby="v-pills-especialidad-tab">
+                                <h4>Especialidades</h4>
+                                <div className="form-group">
+                                    <ul>
+                                        {Array.isArray(perfil.especialidades) && perfil.especialidades.length > 0 ? (
+                                            perfil.especialidades.map((especialidad) => (
+                                                <li id="nombreEspecialidad" key={especialidad.id}>
+                                                    {especialidad.nombre}
+                                                    <i
+                                                        className="fas fa-times"
+                                                        style={{ paddingLeft: "20px" }}
+                                                        onClick={() => deleteEspecialidad(especialidad.especialidad_id)}
+                                                    />
+                                                </li>
+                                            ))
+                                        ) : (
+                                            <li>No hay especialidades disponibles.</li>
+                                        )}
+                                    </ul>
+                                    {Array.isArray(store.especialidades) && Array.isArray(perfil.especialidades) && store.especialidades
+                                        .filter(especialidad =>
+                                            !perfil.especialidades.some(especialidadProfesional => especialidadProfesional.especialidad_id === especialidad.id)
+                                        )
+                                        .map(especialidad => (
+                                            <div key={especialidad.id} className="form-check">
+                                                <input
+                                                    type="checkbox"
+                                                    className="form-check-input"
+                                                    id={`especialidad-${especialidad.id}`}
+                                                    // checked={selectedEspecialidades.includes(especialidad.id)}
+                                                    onChange={() => saveEspecialidad(especialidad.id)}
+                                                />
+                                                <label className="form-check-label" htmlFor={`especialidad-${especialidad.id}`}>
+                                                    {especialidad.nombre}
+                                                </label>
                                             </div>
-                                        </div>
-                                    </div>
+                                        ))}
+
+                                </div>
+                                {/* <button
+                                    className="btn btn-primary mt-3"
+                                    onClick={saveEspecialidad}
+                                >
+                                    Guardar Especialidades
+                                </button> */}
+                            </div>
+                            <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                <div className="container mt-3">
+                                    <FormSolicitudProf />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="accordion-item">
-                        <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Mis agendas
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="accordion-item">
-                        <h2 className="accordion-header">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Metodos de pago
-                            </button>
-                        </h2>
-                        <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <div className="tab-pane fade" id="vi-pills-edit-info" role="tabpanel" aria-labelledby="vi-pills-edit-info-tab">
+                                <div className="container mt-3">
+                                    <EditarInformacion perfil={(perfil)} setPerfil={setPerfil} />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
+            </div>
+    );
+};
 
-export default Perfil
+export default Perfil;

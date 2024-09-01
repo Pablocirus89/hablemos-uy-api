@@ -1,47 +1,475 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
+    a9d7cc
+    7e78d2
+    453643
+    ddc3d0
 */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+
+
 body {
-    background-color: white ;
+  background-color: #f4f2ee;
+  font-family: "Quicksand", sans-serif !important;
 }
 
-* {
+nav+div {
+  min-height: 100vh;
+}
+/* Estilos para el botón .btn-nav */
+.btn-nav {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #53435073;
+  border: none;
+  color: #53e2c1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo */
+.btn-nav:active {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643 !important;
+  border: 2px solid #53e2c1 !important;
+  color: #53e2c1 !important;
+}
+
+/* Estilo cuando el botón está en hover */
+.btn-nav:hover {
+  font-weight: 500;
+  color: #350436;
+  background-color: #a9d7cc;
+  border: none;
+}
+
+
+
+.btn-modal {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: rgba(66, 53, 64, 0.863);
+  border: none;
+  color: #53e2c1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo cuando el botón está activo */
+.btn-modal:active {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643 !important;
+  border: 2px solid #53e2c1 !important;
+  color: #53e2c1 !important;
+}
+
+/* Estilo cuando el botón está en hover */
+.btn-modal:hover {
+  font-weight: 500;
+  color: #350436;
+  background-color: #a9d7cc;
+  border: none;
+}
+
+
+
+/* * {
   box-sizing: border-box !important;
-}
+} */
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
- overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-.text-inicio{
-  color: #112d52;
+/* #a9d7cc
+    #7e78d2
+    #453643
+    #ddc3d0 */
+.text-inicio {
+  color: #350436;
 }
+
 .container-fluid {
   max-width: 100%;
 }
 
-img, video {
-  max-width: 100%; /* Asegura que las imágenes y videos no desborden el contenedor */
+img,
+video {
+  max-width: 100%;
+  /* Asegura que las imágenes y videos no desborden el contenedor */
   height: auto;
 }
 
-.navbar-dark {
-    background-color: #112d52 !important;
+/* #a9d7cc
+    #7e78d2
+    #453643
+    #ddc3d0 */
+.navbar-dark,
+.footer {
+  background: linear-gradient(90deg,
+      #453643, #ddc3d0) !important;
+
+  .navbar-toggler {
+    color: #453643 !important;
   }
 
-.logo{
-width: 50px;
-height: 50px;
+}
+
+.text-nav {
+  color: #ffffff !important;
+  font-size: 20px !important;
+  font-weight: 500;
+  /* Ajusta el grosor del texto */
+  transition: 0.5s ease
+}
+
+.text-nav:hover {
+  color: #a9d7cc !important;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.text-footer {
+  color: #ffffff !important;
+  font-size: 17px !important;
+  font-weight: 500;
+  /* Ajusta el grosor del texto */
+  transition: 0.5s ease
+}
+
+.text-footer:hover {
+  color: #a9d7cc !important;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* #a9d7cc
+    #7e78d2
+    #453643
+    #ddc3d0 */
+
+.info-card {
+  border: none;
+  color: #453643;
+  /* Color del texto */
+  background: linear-gradient(180deg,
+      #453643, #ddc3d0, #ddc3d0) !important;
+}
+
+.info-card i {
+  color: #53e2c1;
+
+}
+
+.text-cardInfo {
+  color: #350436 !important;
+  transition: 0.5s ease
+}
+
+.text-cardInfo:hover {
+  color: #350436 !important;
+  text-shadow: 3px 3px 3px #53e2c1 !important;
 }
 
 /* Estilos para sections y cards */
-section{
+section {
   min-height: 100vh;
 }
-.card{
-    background-color: #a9d7cb !important;
+
+.card.profesional {
+  overflow: hidden;
 }
 
+.image-container {
+  height: 100%;
+  width: 100%;
+}
+
+.card.profesional img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* #a9d7cc
+    #7e78d2
+    #453643
+    #ddc3d0 */
+.text-presentacion {
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.8), rgba(221, 195, 208, 0)) !important;
+}
+
+
+/* Opción 5: Botón de Fondo Morado Oscuro con Texto Beige */
+.btn-custom-5 {
+  background-color: #453643;
+  border: 2px solid #ddc3d0;
+  color: #ddc3d0;
+  padding: 15px 30px;
+  /* Aumenta el tamaño del botón */
+  font-size: 1.2rem;
+  /* Aumenta el tamaño de la letra */
+  margin: 10px 0;
+  /* Agrega separación entre los botones */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom-5:hover {
+  background-color: #a9d7cc;
+  color: #453643;
+}
+
+.btn-custom-5:active {
+  background-color: #ddc3d0;
+  color: #453643;
+}
+
+
+
+
+.text-marron {
+
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(69, 54, 67, 1);
+}
+
+.boton-inicio {}
+
+.card.card-emergencia {
+  background: white !important;
+}
+
+.card-emergencia .card-header {
+  color: #350436 !important;
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.3), rgba(221, 195, 208, 0.3)) !important;
+}
+
+/* Estilos para los acordeones */
+.accordion-button.collapsed {
+  background: white !important;
+}
+
+.accordion-button {
+  color: #350436 !important;
+  background: linear-gradient(90deg, rgba(69, 54, 67, 0.3), rgba(221, 195, 208, 0.3)) !important;
+}
+.accordion-button::after {
+  color: #350436 !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+  /* Quita la sombra al enfocar */
+}
+
+#shadow-host-companion {
+  display: none !important;
+}
+
+.text-celeste {
+  color: #53e2c1
+}
+
+/* Estilo base para la tarjeta */
+.card.profesional {
+  height: auto;
+  /* Permite que la tarjeta se ajuste automáticamente */
+  overflow: hidden;
+  /* Evita el desbordamiento */
+  background: linear-gradient(90deg,
+      rgba(58, 48, 57, 0.479),
+      /* Marrón oscuro con 30% de opacidad */
+      rgba(221, 195, 208, 0.3)
+      /* Color claro con 30% de opacidad */
+    ) !important;
+  border: none !important;
+}
+
+/* Media query para pantallas a partir de 768px */
+@media (min-width: 768px) {
+  .card.profesional {
+    min-height: 300px;
+    /* Altura máxima de 300px en pantallas medianas y grandes */
+  }
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 767px) {
+  .card.profesional {
+    margin: 10px;
+    /* Reduce el margen en pantallas pequeñas */
+  }
+
+  .card-body {
+    padding-bottom: 60px;
+    /* Espacio para el botón en pantallas pequeñas */
+  }
+
+}
+.especialidad-tag {
+  display: inline-block;
+  background-color: #a9d7cc; /* Color de fondo de la etiqueta */
+  border: 2px solid #350436;
+  color: #350436; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno de la etiqueta */
+  border-radius: 15px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de la fuente */
+  font-weight: 800 !important; /* Grosor de la fuente */
+}
+
+.especialidad-tag:not(:last-child) {
+  margin-right: 5px; /* Espacio entre etiquetas */
+}
+
+
+/* Ajustes para pantallas medianas */
+@media (min-width: 768px) and (max-width: 991px) {
+  .card.profesional {
+    margin: 20px;
+    /* Ajusta el margen en pantallas medianas */
+  }
+
+  .card-body {
+    padding-bottom: 60px;
+    /* Espacio para el botón en pantallas medianas */
+  }
+
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 992px) {
+  .card.profesional {
+    margin: 30px;
+    /* Ajusta el margen en pantallas grandes */
+  }
+
+  .card-body {
+    padding-bottom: 60px;
+    /* Espacio para el botón en pantallas grandes */
+  }
+
+  .button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* Estilo base para el botón custom-btn */
+/* Estilo base para el botón custom-btn */
+.btn.custom-btn {
+  background-color: #453643;
+  border: 2px solid #ddc3d0;
+  color: #ddc3d0;
+  padding: 15px 30px; /* Aumenta el tamaño del botón */
+  font-size: 1.2rem; /* Aumenta el tamaño de la letra */
+  margin: 10px 0; /* Agrega separación entre los botones */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto hover para el botón custom-btn */
+.btn.custom-btn:hover {
+  background-color: #a9d7cc;
+  color: #350436;
+  border-color: #350436;
+  transform: scale(1.05); /* Aumenta el tamaño del botón ligeramente */
+}
+
+/* Efecto active para el botón custom-btn */
+.btn.custom-btn:active {
+  background-color: #ddc3d0;
+  color: #453643;
+  transform: scale(0.95); /* Reduce el tamaño del botón ligeramente */
+}
+
+/* Efecto focus para el botón custom-btn */
+.btn.custom-btn:focus {
+  outline: none; /* Quita el contorno por defecto */
+  box-shadow: 0 0 0 2px rgba(11, 135, 147, 0.5); /* Añade una sombra alrededor del botón al estar en foco */
+}
+
+
+.fas:hover {
+  cursor: pointer;
+}
+/*Estilos flechas carrusel*/
+.slick-next {
+  visibility: visible;
+  right: 50px !important;
+  height: 150px !important;
+  width: 150px !important;
+}
+
+.slick-next::before {
+  content: '\f054' !important;
+  /* Código del ícono de Font Awesome para el "chevron-right" */
+  font-family: 'Font Awesome 6 Free' !important;
+  /* Asegúrate de usar el nombre correcto de la fuente */
+  font-weight: 600 !important;
+  /* El peso de la fuente puede ser necesario dependiendo del ícono */
+  font-size: 60px !important;
+  /* Tamaño del ícono */
+  color: rgba(153, 145, 145, 0.479) !important;
+  /* Color del ícono */
+  display: inline-block !important;
+  width: 150px !important;
+  /* Ancho del área del ícono */
+  height: 150px !important;
+  /* Alto del área del ícono */
+  text-align: center !important;
+  /* Centra el ícono */
+  line-height: 150px !important;
+  /* Alinea el ícono verticalmente */
+  font-style: normal !important;
+}
+
+.slick-prev {
+  visibility: visible !important;
+  left: 50px !important;
+  height: 150px !important;
+  width: 150px !important;
+  z-index: 10 !important;
+  /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.slick-prev::before {
+  content: '\f053' !important;
+  /* Código del ícono de Font Awesome para el "chevron-left" */
+  font-family: 'Font Awesome 6 Free' !important;
+  font-weight: 600 !important;
+  font-size: 60px !important;
+  color: rgba(153, 145, 145, 0.479) !important;
+  display: inline-block !important;
+  width: 150px !important;
+  height: 150px !important;
+  text-align: center !important;
+  line-height: 150px !important;
+  font-style: normal !important;
+}
+
+/* Media query para pantallas de 767px o menos */
+@media (max-width: 767px) {
+  .slick-next {
+    right: -30px !important;
+    /* Ajusta el valor según sea necesario */
+    visibility: hidden !important;
+  }
+
+  .slick-prev {
+    left: -30px !important;
+    /* Ajusta el valor según sea necesario */
+    visibility: hidden !important;
+  }
+}

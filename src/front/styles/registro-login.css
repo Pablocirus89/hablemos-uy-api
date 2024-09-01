@@ -9,9 +9,18 @@
   box-sizing: border-box;
   padding: 20px 30px;
 }
+.input-beige{
+  background-color: #f4f2ee !important;
+}
+input{
+  
+}
+input:focus{
+
+}
 
 .form-container2 {
-   width: 100%; 
+  width: 100%; 
   max-height: 550px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -21,12 +30,18 @@
 }
 
 .title {
+  color:#350436 !important;
   text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Verdana, sans-serif;
   margin: 10px 0 30px 0;
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 48px;
+  font-weight: 400;
+}
+input[type="checkbox"]:checked{
+  border:#350436;
+  background-color: #453643 !important; /* Cambia el color a tu preferencia */
+}
+a{
+  color: #350436 !important;
 }
 
 .form {
@@ -37,17 +52,20 @@
   margin-bottom: 15px;
 }
 .form-control{
+  outline: none !important;
+  box-shadow: none !important;
   border:0px;
   border-bottom: 1px solid;
-  border-color:rgb(13,110,253);
+  border-color:#350436;
   border-radius: 0px;
 }
-.input {
-  border-radius: 20px;
-  border: 1px solid #c0c0c0;
-  outline: 0 !important;
-  box-sizing: border-box;
-  padding: 12px 15px;
+.form-control:focus{
+  outline: none !important;
+  box-shadow: none !important;
+  border:0px;
+  border-bottom: 1px solid;
+  border-color:#350436;
+  border-radius: 0px;
 }
 
 
@@ -71,6 +89,15 @@
   color: teal;
   cursor: pointer;
   font-weight: 800;
+}
+
+.input-group-text {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
 }
 
 /* Estilos de línea divisoria formulario */
@@ -101,4 +128,45 @@
 }
 .label-left {
   text-align: left !important;
+}
+.btn-login-registro-google {
+  border: 2px solid #453643;
+  width: 70%;
+  height: 50px !important;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.btn-login-registro-google:hover{
+  width: 72%;
+  height: 50px !important;
+  border: 2px solid #53e2c1;}
+
+.btn-login-registro {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643;
+  border: none;
+  color:#53e2c1;
+  width: 70%;
+  height: 50px !important;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.btn-login-registro:active {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #453643 !important;
+  border: 2px solid #53e2c1 !important;
+  color:#53e2c1 !important;
+  width: 70%;
+  height: 50px !important;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.btn-login-registro:hover{
+  font-weight: 500;
+  color: #350436;
+  width: 72%;
+  height: 50px !important;
+  background-color: #a9d7cc;
+  border: none;
 }

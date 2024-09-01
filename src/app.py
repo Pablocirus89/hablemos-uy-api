@@ -10,11 +10,12 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-from datetime import datetime, timezone
+from datetime import timedelta
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager# from models import Person 
+from flask_jwt_extended import JWTManager# from models import Person
+from flask_mail import Mail
 
-#hola
+
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
@@ -34,6 +35,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
 
+
 # add the admin
 setup_admin(app)
 
@@ -43,6 +45,20 @@ setup_commands(app)
 # Setup the Flask-JWT-Extended extension
 app.config["JWT_SECRET_KEY"] = "super-agent-secret-86"
 jwt = JWTManager(app)
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=60)  # Token de acceso válido por 60 minutos
+app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=15)     # Refresh token válido por 15 días
+
+# Configuración del correo electrónico para reestablecer contraseña
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS') == 'True'
+app.config['MAIL_USE_SSL'] = os.getenv('MAIL_USE_SSL') == 'True'
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
+mail= Mail(app)
+app.mail= mail
+
 
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api, url_prefix='/api')
