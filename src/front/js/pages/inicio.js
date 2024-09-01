@@ -26,7 +26,7 @@ export const Inicio = () => {
         <div className="container-fluid p-0">
           <div className="position-relative vh-100 w-100">
             <img
-              src='https://images.pexels.com/photos/5217833/pexels-photo-5217833.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+              src='https://images.pexels.com/photos/7176319/pexels-photo-7176319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
               className="img-fluid w-100 h-100"
               style={{ objectFit: 'cover' }}
               alt="..."
@@ -34,7 +34,7 @@ export const Inicio = () => {
             <div className="position-absolute  col-10 col-md-8 ms-md-0 ms-2 text-start text-light text-marron text-presentacion bg-opacity-50 p-3 rounded"
               style={{ top: '60%', left: '40%', transform: 'translate(-50%, -50%)', maxHeigth: '100%'}}>
                 <h3 className="m-0">Bienvenidos a</h3>
-              <h1 className="mb-4 display-1 m-0">HablemosUY</h1>
+              <h1 className="mb-4 display-1 m-0" style={{fontWeight:'500'}}><span style={{color:'#a9d7cc'}}>Hablemos</span><span style={{color:'#fdb235'}}>UY</span></h1>
               
               <div className="d-flex flex-column gap-1 m-2 align-items-center w-100 mt-4">
                 {!store.logged && (
