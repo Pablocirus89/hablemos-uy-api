@@ -72,7 +72,7 @@ const Meets = () => {
                             {/* Columna 3: Botón */}
                             {isPending &&
                                 <div className="col-md-5 col-12 my-3 my-lg-auto d-flex align-items-center justify-content-center">
-                                    <a href={event.location.join_url} target="_blanck" className="btn btn-primary mx-2">
+                                    <a href={event.location.join_url} target="_blanck" className="btn btn-meet mx-2">
                                         <i className="fa-solid fa-video me-2"></i> Unirse a la reunión
                                     </a>
                                 </div>
