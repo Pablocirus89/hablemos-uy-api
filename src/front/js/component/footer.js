@@ -1,29 +1,33 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+
 export const Footer = () => (
-	<footer className="footer py-3 d-flex justify-content-evenly align-items-center text-start text-light mt-5 row">
-		<p className="m-0 col-md-4 col-10">
-			© 2024 HablemosUY. Todos los derechos reservados.
-		</p>
-		<div className="m-0 col-md-6 col-10 text-end">
-			<p>
-				Síguenos en redes sociales
-				<a href="https://www.instagram.com/" className="login__forgot text-light" target="_blank" rel="noopener noreferrer">
-					<i className="fa-brands fa-instagram ms-2"></i>
-				</a>
-				<a href="https://x.com/?lang=es" className="login__forgot text-light" target="_blank" rel="noopener noreferrer">
-					<i className="fa-brands fa-x-twitter ms-2"></i>
-				</a>
-				<a href="https://www.linkedin.com/home" className="login__forgot text-light" target="_blank" rel="noopener noreferrer">
-					<i className="fa-brands fa-linkedin ms-2"></i>
-				</a>
-			</p>
-			<p>
-				<Link to="/vistaLegalDocs" className="login__forgot text-light mx-3">Términos y Condiciones</Link>
-				|<Link to="/vistaLegalDocs" className="login__forgot text-light mx-3">Declaración de Privacidad</Link>
-				|<Link to="/vistaLegalDocs" className="login__forgot text-light ms-3">Aviso Legal</Link>
-			</p>
-		</div>
-	</footer>
+  <footer className="footer py-3 d-flex flex-column flex-md-row justify-content-between align-items-center text-light mt-5 px-3">
+    <p className="m-0 fs-6 text-center text-md-start  ms-md-4">
+      © 2024 HablemosUY. Todos los derechos reservados.
+    </p>
+    <div className="text-center text-md-end mt-2 mt-md-0">
+      <p className="mb-1 me-md-4">
+        Síguenos en redes sociales
+        <a href="https://www.instagram.com/" className="text-light ms-2" target="_blank" rel="noopener noreferrer">
+          <i className="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://x.com/?lang=es" className="text-light ms-2" target="_blank" rel="noopener noreferrer">
+          <i className="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/home" className="text-light ms-2" target="_blank" rel="noopener noreferrer">
+          <i className="fa-brands fa-linkedin"></i>
+        </a>
+      </p>
+      <p className="mb-0  me-md-3">
+        <Link to="/vistaLegalDocs" className="text-light mx-2 text-footer">Términos y Condiciones</Link>
+        |
+        <Link to="/vistaLegalDocs" className="text-light mx-2 text-footer">Declaración de Privacidad</Link>
+        |
+        <Link to="/vistaLegalDocs" className="text-light mx-2 text-footer">Aviso Legal</Link>
+      </p>
+    </div>
+  </footer>
 );
+

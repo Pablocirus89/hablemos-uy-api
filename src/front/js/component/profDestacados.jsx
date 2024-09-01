@@ -83,10 +83,16 @@ const SimpleCarousel = () => {
                                     <div className="col-md-8">
                                         <div className="card-body">
                                             <h2 className="card-title text-inicio my-3">{elm.nombre}</h2>
-                                            {elm.especialidades.map((esp, inx) => (
-                                                <h6 className="card-text" key={inx}>{esp}</h6>
-                                            ))}
-                                            <p className="card-text text-body-secondary">{elm.descripcion}</p>
+                                            <ul className="d-flex p-0 flex-row gap-2 flex-wrap">
+                                            {
+                                            elm.especialidades.map((especialidad, inx) => (
+                                                <li className="especialidad-tag" key={inx}>
+                                                  {especialidad}
+                                                </li>
+                                              ))
+                                            }
+                                            </ul>
+                                            <p className="card-text text-inicio">{elm.descripcion}</p>
                                         </div>
                                     </div>
                                 </div>

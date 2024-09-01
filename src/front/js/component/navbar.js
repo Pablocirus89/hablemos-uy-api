@@ -46,7 +46,7 @@ export const Navbar = () => {
 
             {/* <Link className="nav-link mx-4 text-light" to="/">Precios</Link> */}
            
-            {store.logged && (<Link to="/"> <button type="button" className="btn btn-outline-light  ms-4 me-5" onClick={handleLogout}>
+            {store.logged && (<Link to="/"> <button type="button" className="btn btn-nav mt-1 ms-4 me-5" onClick={handleLogout}>
               Cerrar sesión
             </button></Link>
             )}

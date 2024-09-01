@@ -82,7 +82,7 @@ const Profesionales = () => {
         <div className="mt-5">
         {store.psicologos.map((elm, index) => (
           <div className='d-flex justify-content-center' key={index}>
-            <div className="card profesional mb-3 text-start col-10 col-md-8 col-xl-6">
+            <div className="card profesional mb-3 text-start col-10 col-md-8 col-xxl-6">
               <div className="row g-0 h-100">
                 <div className="col-12 col-md-4">
                   <img

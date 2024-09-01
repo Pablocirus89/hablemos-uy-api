@@ -7,8 +7,8 @@ const InfoCard = ({ title, description, icono }) => {
             <div className="card info-card" style={{ width: "18rem" }}>
                 <i className={`${icono} fa-4x mt-2`}></i>
                 <div className="card-body">
-                    <h5 className="text-amarillo">{title}</h5>
-                    <p className="card-text">{description}</p>
+                    <h5>{title}</h5>
+                    <p className="card-text text-inicio">{description}</p>
                 </div>
             </div>
         </div>

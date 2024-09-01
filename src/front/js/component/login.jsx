@@ -155,7 +155,7 @@ export const Login = () => {
 	return (
 		<div className="form-container2 text-center mb-3 border border-3 rounded">
 			<form action="#" id="login-form" onSubmit={formik.handleSubmit}>
-				<h2 className="title fw-semibold text-secondary">Iniciar sesión</h2>
+				<h1 className="title">Inicio de sesión</h1>
 
 				<div className="left">
 					<div className="d-flex justify-content-center flex-column align-items-center">
@@ -185,12 +185,12 @@ export const Login = () => {
 						) : null}
 					</div>
 					<div>
-						<button type="submit" className="btn btn-login-registro btn-primary mt-2">Iniciar sesión</button>
+						<button type="submit" className="btn btn-login-registro btn-primary mt-2 text-center">Iniciar sesión</button>
 					</div>
 				</div>
 				<div className="right">
 					<div className="buttons-container mt-2 d-flex justify-content-center">
-						<GoogleLogin className="btn-login-registro d-flex justify-content-center" clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy="single_host_policy" />
+						<GoogleLogin className="btn-login-registro-google d-flex justify-content-center" clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy="single_host_policy" />
 					</div>
 					<div className="p-2">
 						<Link to="#" onClick={handleShowModal} className="login__forgot m-3">Olvidé mi contraseña</Link>
@@ -211,7 +211,7 @@ export const Login = () => {
 			{/* Modal de recuperación de contraseña */}
 			<Modal show={showModal} onHide={handleCloseModal}>
 				<Modal.Header closeButton>
-					<Modal.Title className="w-100 text-center text-secondary">Recuperar Contraseña</Modal.Title>
+					<Modal.Title className="w-100 text-center text-inicio fs-2">Recuperar Contraseña</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Form className="justify-content-center">
@@ -227,10 +227,7 @@ export const Login = () => {
 					</Form>
 				</Modal.Body>
 				<Modal.Footer className="d-flex justify-content-center">
-					<Button variant="secondary" onClick={handleCloseModal}>
-						Cancelar
-					</Button>
-					<Button variant="primary" onClick={handleSendRecoveryEmail}>
+					<Button className="btn-modal" onClick={handleSendRecoveryEmail}>
 						Enviar Correo de Recuperación
 					</Button>
 				</Modal.Footer>
