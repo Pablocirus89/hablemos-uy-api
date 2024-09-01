@@ -2,52 +2,32 @@
 # https://www.npmjs.com/package/@renderinc/heroku-import
 # Schema documented at https://render.com/docs/yaml-spec
 services:
-    - type: web
+    - type: web # valid values: https://render.com/docs/yaml-spec#type
       region: ohio
-      name: sample-service-name
-      env: python
+      name: HablemosUY
+      env: python # valid values: https://render.com/docs/yaml-spec#environment
       buildCommand: "./render_build.sh"
       startCommand: "gunicorn wsgi --chdir ./src/"
-      plan: free
+      plan: free # optional; defaults to starter
       numInstances: 1
       envVars:
-          - key: BASENAME
+          - key: BASENAME # Imported from Heroku app
             value: /
-          - key: FLASK_APP
+          - key: FLASK_APP # Imported from Heroku app
             value: src/app.py
-          - key: FLASK_DEBUG
+          - key: FLASK_DEBUG # Imported from Heroku app
             value: 0
-          - key: FLASK_APP_KEY
+          - key: FLASK_APP_KEY # Imported from Heroku app
             value: "any key works"
           - key: PYTHON_VERSION
             value: 3.10.6
-          - key: DATABASE_URL
+          - key: DATABASE_URL # Render PostgreSQL database
             fromDatabase:
                 name: postgresql-trapezoidal-42170
                 property: connectionString
-          - key: SECRET_KEY
-            value: "h2g7T$4n!WqP9l@r3m&kJ8vX&z6yS9dFpCmyG"
-          - key: MAIL_SERVER
-            value: smtp.gmail.com
-          - key: MAIL_PORT
-            value: 587
-          - key: MAIL_USERNAME
-            value: hablemosuysaludmental@gmail.com
-          - key: MAIL_PASSWORD
-            value: "ntey yccu lyih wstp"
-          - key: MAIL_USE_TLS
-            value: "True"
-          - key: MAIL_USE_SSL
-            value: "False"
-          - key: MAIL_DEFAULT_SENDER
-            value: hablemosuysaludmental@gmail.com
-          - key: BACKEND_URL
-            value: https://obscure-space-capybara-7vr9q479r5jxfpxq5-3001.app.github.dev/api
-          - key: FRONTEND_URL
-            value: https://obscure-space-capybara-7vr9q479r5jxfpxq5-3000.app.github.dev
 
-databases:
-    - name: postgresql-trapezoidal-42170
+databases: # Render PostgreSQL database
+    - name: hablemosuy-trapezoidal-42170
       region: ohio
-      ipAllowList: []
-      plan: free
+      ipAllowList: [] # only allow internal connections
+      plan: free # optional; defaults to starter

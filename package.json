@@ -27,7 +27,7 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
-		"@babel/core": "^7.16.0",
+		"@babel/core": "^7.25.2",
 		"@babel/plugin-proposal-class-properties": "^7.16.0",
 		"@babel/plugin-transform-runtime": "^7.16.4",
 		"@babel/preset-env": "^7.16.4",
@@ -76,10 +76,12 @@
 		]
 	},
 	"dependencies": {
+		"@babel/traverse": "^7.25.6",
 		"@mercadopago/sdk-react": "^0.0.19",
 		"@paypal/react-paypal-js": "^8.6.0",
 		"aos": "^2.3.4",
 		"axios": "^1.7.3",
+		"babel-traverse": "^6.26.0",
 		"bootstrap": "^5.3.3",
 		"formik": "^2.4.6",
 		"gapi-script": "^1.2.0",
