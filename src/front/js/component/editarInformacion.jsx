@@ -130,7 +130,7 @@ const EditarInformacion = ({perfil,setPerfil}) => {
                     <small className="text-inicio text-center">
                         La información que nos ha proporcionado será utilizada para actualizar su perfil personal.
                     </small>
-                    <button type="submit" className="col-12 col-md-8 btn btn-primary btn-login-registro mt-3">Guardar Información</button>
+                    <button type="submit" className="col-12 col-md-8 btn btn-primary btn-login-registro mt-3">Guardar</button>
                 </div>
             </form>
         </div>

@@ -82,8 +82,8 @@ export const Login = () => {
 		}
 	};
 
-	const onFailure = () => {
-		console.log('Algo salió mal');
+	const onFailure = (response) => {
+		console.log('Algo salió mal', response);
 	};
 
 	const formik = useFormik({
