@@ -169,7 +169,7 @@ const Perfil = () => {
                 <div className="row">
                     <div className="col-12 col-md-4">
                         <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button className="nav-link active nav-perfil" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{perfil && perfil.is_psicologo ? 'Agendas de pacientes' : 'Mis agendass'}</button>
+                            <button className="nav-link active nav-perfil" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">{perfil && perfil.is_psicologo ? 'Agendas de pacientes' : 'Mis agendas'}</button>
                             <button className="nav-link nav-perfil" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Métodos de pago</button>
                             {perfil && perfil.is_psicologo ==true ? (
                                 <button className="nav-link nav-perfil" id="v-pills-especialidad-tab" data-bs-toggle="pill" data-bs-target="#v-pills-especialidad" type="button" role="tab" aria-controls="v-pills-especialidad" aria-selected="false">Mis especialidades</button>
@@ -177,9 +177,6 @@ const Perfil = () => {
                                 <button className="nav-link nav-perfil" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Solicitud de perfil profesional</button>
                             )
                             }
-                            {/* {perfil && !perfil.is_psicologo && (
-                                <button className="nav-link nav-perfil" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Solicitud de perfil profesional</button>
-                            )}*/}
                             <button className="nav-link nav-perfil" id="vi-pills-edit-info-tab" data-bs-toggle="pill" data-bs-target="#vi-pills-edit-info" type="button" role="tab" aria-controls="vi-pills-edit-info" aria-selected="false">Editar mi información</button>
                         </div>
                     </div>
@@ -230,12 +227,6 @@ const Perfil = () => {
                                         ))}
 
                                 </div>
-                                {/* <button
-                                    className="btn btn-primary mt-3"
-                                    onClick={saveEspecialidad}
-                                >
-                                    Guardar Especialidades
-                                </button> */}
                             </div>
                             <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                 <div className="container mt-3">

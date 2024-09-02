@@ -50,7 +50,7 @@ const PregFrecuentes = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-              En nuestra página de inicio de sesión haz clic en <a href="/vista-login">"Olvidé mi contraseña"</a>, se desplegará un modal en el que deberás ingresar tu correo y enviarlo. Recibirás un mail de HablemosUY Salud Mental para restablecer o cambiar tu contraseña siguiendo las instrucciones desde el enlace. Una vez completado este proceso ya puedes iniciar sesión con la nueva contraseña que hayas establecido. Debes tener en cuenta que gestionamos sólo las contraseñas que se generan en los registros realizados en el fomulario de registro de nuestro sitio, si te haz registrado con el servicio de Google y tienes algun inconveniente con tu contraseña, deberás gestionar tu recupeación son su servicio.
+              En nuestra página de inicio de sesión haz clic en <a href="/vista-login">"Olvidé mi contraseña"</a>, se desplegará un modal en el que deberás ingresar tu correo y enviarlo. Recibirás un mail de HablemosUY Salud Mental para restablecer o cambiar tu contraseña siguiendo las instrucciones desde el enlace. Una vez completado este proceso ya puedes iniciar sesión con la nueva contraseña que hayas establecido. Debes tener en cuenta que gestionamos sólo las contraseñas que se generan en los registros realizados en el fomulario de registro de nuestro sitio, si te haz registrado con el servicio de Google y tienes algún inconveniente con tu contraseña, deberás gestionar tu recupeación son su servicio.
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const PregFrecuentes = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                En tu sección "Perfil" encontrarás una pestaña que contiene el formulario donde se te solicitará la información y documentación correspondiente. Algunos de los documentos requeridos son Título de Licenciado en Psicología, Registro en el Ministerio de Salud Pública (MSP), Currículum Vitae, Certificaciones Especializadas, Membresía en Asociaciones Profesionales (opcional), Participación en Congresos, Talleres y Cursos de Capacitación (opcional), y la documentación complementaria que consideres. Nuestro equipo de RR.HH verificará tus credenciales, acreditaciones y perfil, comunicándonos a la brevedad vía mail para informarte si haz sido selecionado/a para formar parte de nuestro equipo de expertos.
+                En tu sección "Perfil" encontrarás una pestaña que contiene el formulario donde se te solicitará la información y documentación correspondiente. Algunos de los documentos requeridos son Título de Licenciado en Psicología, Registro en el Ministerio de Salud Pública (MSP), Currículum Vitae, Certificaciones Especializadas, Membresía en Asociaciones Profesionales (opcional), Participación en Congresos, Talleres y Cursos de Capacitación (opcional), y la documentación complementaria que consideres. Nuestro equipo de RR.HH verificará tus credenciales, acreditaciones y perfil, comunicándonos a la brevedad vía mail para informarte si haz sido seleccionado/a para formar parte de nuestro equipo de expertos.
               </div>
             </div>
           </div>

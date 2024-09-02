@@ -16,7 +16,7 @@ const SobreNosotros = () => {
 
             <div className='mx-auto col-12 col-md-10'>
                 <h4 className='mb-5 text-inicio' data-aos="fade-right">
-                    En HablemosUy, nuestra misión es facilitar tu acceso a profesionales de la salud mental especializados en diversas áreas. Ya sea que necesites apoyo con la ansiedad, el estrés, la depresión, o simplemente desees mejorar tu bienestar emocional, estamos aquí para ayudarte.
+                    En HablemosUY nuestra misión es facilitar tu acceso a profesionales de la salud mental especializados en diversas áreas. Ya sea que necesites apoyo con la ansiedad, el estrés, la depresión, o simplemente desees mejorar tu bienestar emocional, estamos aquí para ayudarte.
                 </h4 >
                 <h4 className='mb-5 text-inicio' data-aos="fade-left">
                     Con nuestra plataforma, puedes encontrar y agendar fácilmente consultas con psicólogos calificados, virtualmente desde la comodidad de tu hogar.
